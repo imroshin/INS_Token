@@ -3,15 +3,21 @@
  * 
  */
  require('@nomiclabs/hardhat-ethers');
- const { key, url } = require('./secrets.json');
+ require("@nomiclabs/hardhat-etherscan");
+
+ const { key, url,etherscanApiKey } = require('./secrets.json');
 
 
 module.exports = {
-  solidity: "0.8.3",
+  solidity: "0.8.4",
   networks: {
-           testnet: {
+           mainnet: {
            url: url,
            accounts: [key],
         },
       },
+      etherscan: {
+        //your api key for bscscan or etherscan
+         apiKey: etherscanApiKey
+      }
 };
